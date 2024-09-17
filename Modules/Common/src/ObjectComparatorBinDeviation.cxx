@@ -46,13 +46,13 @@ Quality ObjectComparatorBinDeviation::compare(TObject* object, TObject* referenc
     double refVal = referenceHistogram->GetBinContent(bin);
     binDeviation = (refVal == 0) ? 0 : std::abs((val - refVal) / refVal);
     if (binDeviation > getThreshold()) {
-        isDeviated = true;
+      isDeviated = true;
     }
   }
 
   // compare the average deviation with the maximum allowed value
   if (isDeviated) {
-    //message = fmt::format("large deviation: {:.2f} > {:.2f}", averageDeviation, getThreshold());
+    // message = fmt::format("large deviation: {:.2f} > {:.2f}", averageDeviation, getThreshold());
     return Quality::Bad;
   }
 
